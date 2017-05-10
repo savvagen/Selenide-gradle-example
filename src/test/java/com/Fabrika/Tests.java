@@ -44,7 +44,7 @@ public class Tests {
                 // Video could be disabled globally. Set to "true"
                 .videoEnabled(true)
                 .withRecorderType(RecorderType.FFMPEG)
-                // There is two recording modes ANNOTATED AND ALL
+                //There is two recording modes ANNOTATED AND ALL
                 // Annotated is default and works only with methods annotated by @Video
                 .withRecordMode(RecordingMode.ANNOTATED)
                 .withVideoSaveMode(VideoSaveMode.ALL)
