@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Test Suite">
-    <parameter name="browserType" value="firefox"/>
+<suite name="Test Suite" parallel="tests" thread-count="2">
+
+    <!--<parameter name="browser" value="firefox"/>
+    <parameter name="version" value="46.0"/>-->
 
     <!--<listeners>
-        <listener class-name="com.Fabrika.utilites.Listeners.TestListener"/>
+        <listener class-name="com.Fabrika.AllureListener"/>
     </listeners>-->
 
-    <test name="tests">
-
+    <test name="authTests">
+        <!--<parameter name="browser" value="firefox"/>
+        <parameter name="version" value="46.0"/>-->
         <classes>
-            <class name="com.Fabrika.Tests"/>
+            <class name="com.Fabrika.AuthorizationTests"/>
+            <!--<class name="com.Fabrika.HomePageTests"/>-->
+        </classes>
+    </test>
+
+    <test name="homeTests">
+        <!--<parameter name="browser" value="chrome"/>
+        <parameter name="version" value="54.0"/>-->
+        <classes>
+            <class name="com.Fabrika.HomePageTests"/>
         </classes>
     </test>
 </suite>
