@@ -55,6 +55,13 @@ dependencies {
     //compile group: 'xml-apis', name: 'xml-apis', version: '2.0.2'
     compile group: 'org.json', name: 'json', version: '20160810'
     compile group: 'com.automation-remarks', name: 'video-recorder-testng', version: '1.4'
+    //Logging with log4j2
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.2'
+    //Logging with log4j
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    //Test Containers
+    compile group: 'org.testcontainers', name: 'selenium', version: '1.2.1'
 }
 
 

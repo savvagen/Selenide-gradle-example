@@ -4,19 +4,16 @@ package com.Fabrika;
 import com.automation.remarks.testng.VideoListener;
 import com.automation.remarks.video.annotations.Video;
 import com.codeborne.selenide.Condition;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import static com.codeborne.selenide.Condition.not;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
 @Listeners({VideoListener.class, AllureListener.class})
 public class HomePageTests extends TestBase {
+
 
 
     @BeforeMethod(alwaysRun = true)
@@ -64,7 +61,6 @@ public class HomePageTests extends TestBase {
 
     @Test
     public void deletePost(){
-        loginPage.openPage().login();
         homePage.postTable.shouldBe(visible);
         homePage.deleteLastPost();
         homePage.posts.shouldHaveSize(1);
