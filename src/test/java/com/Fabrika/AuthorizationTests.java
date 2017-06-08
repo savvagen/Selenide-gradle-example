@@ -1,7 +1,10 @@
 package com.Fabrika;
 
+import com.Fabrika.listeners.TestListener;
+import com.Fabrika.utilites.TestBase;
 import com.automation.remarks.testng.VideoListener;
 import com.automation.remarks.video.annotations.Video;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -11,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-@Listeners({VideoListener.class, AllureListener.class})
+@Listeners({VideoListener.class, AllureListener.class, ReportPortalTestNGListener.class, TestListener.class})
 public class AuthorizationTests extends TestBase {
 
 

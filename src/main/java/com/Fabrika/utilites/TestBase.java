@@ -1,4 +1,4 @@
-package com.Fabrika;
+package com.Fabrika.utilites;
 
 
 import com.Fabrika.pages.Header;
@@ -14,6 +14,7 @@ import com.automation.remarks.video.recorder.VideoRecorder;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.junit.runner.Description;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.CapabilityType;
@@ -23,6 +24,7 @@ import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.containers.FixedHostPortGenericContainer;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.images.builder.ImageFromDockerfile;
+import org.testng.TestNG;
 import org.testng.annotations.*;
 
 import static com.codeborne.selenide.Configuration.*;
@@ -31,6 +33,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 
 public class TestBase {
 
@@ -52,16 +55,15 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void stratSuite(){
-        composeContainer = new DockerComposeContainer(new File("selenoid.yml"));
+        /*composeContainer = new DockerComposeContainer(new File("selenoid.yml"));
         composeContainer.starting(Description.createTestDescription
-                (TestBase.class, "container strating"));
-
+                (TestBase.class, "container strating"));*/
     }
 
     @AfterSuite(alwaysRun = true)
     public void tearDownSuite(){
-        composeContainer.finished(Description.createTestDescription
-                (TestBase.class, "container stopping"));
+        /*composeContainer.finished(Description.createTestDescription
+                (TestBase.class, "container stopping"));*/
     }
 
 
@@ -76,41 +78,34 @@ public class TestBase {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1366x768";*/
 
-        //Driver.setBrowser("chrome");
+        Driver.setBrowser("chrome");
         baseUrl = "https://vlay.pythonanywhere.com/test_1";
 
 
 
-        dc = DesiredCapabilities.firefox();
+        /*dc = DesiredCapabilities.firefox();
         dc.setBrowserName(browser);
         //Enabled VNC for version 46.0
         dc.setVersion(version);
         dc.setCapability("enableVNC", true);
 
-        dc.setPlatform(Platform.LINUX.LINUX);
+        dc.setPlatform(Platform.LINUX);
         dc.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         dc.setJavascriptEnabled(true);
-        WebDriverRunner.setWebDriver(new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), dc));
+        WebDriverRunner.setWebDriver(new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), dc));*/
 
 
-        VideoRecorder.conf()
-                .withVideoFolder("video")
-                .videoEnabled(false)
-                .withRecorderType(RecorderType.FFMPEG)
-                .withVideoSaveMode(VideoSaveMode.ALL)
-                .withRecordMode(RecordingMode.ANNOTATED)
-                .withScreenSize(1366,768);
-        /*// Default video folder is ${user.dir}/video. Could be changed by:
+        // Default video folder is ${user.dir}/video. Could be changed by:
         VideoRecorder.conf()
                 .withVideoFolder("video")
                 // Video could be disabled globally. Set to "true"
-                .videoEnabled(true)
+                .videoEnabled(false)
                 .withRecorderType(RecorderType.FFMPEG)
+                .withVideoSaveMode(VideoSaveMode.ALL)
                 //There is two recording modes ANNOTATED AND ALL
                 // Annotated is default and works only with methods annotated by @Video
                 .withRecordMode(RecordingMode.ANNOTATED)
-                .withVideoSaveMode(VideoSaveMode.ALL)
-                .withFrameRate(24);*/
+                .withScreenSize(1366,768);
 
         header = new Header();
         homePage = new HomePage();

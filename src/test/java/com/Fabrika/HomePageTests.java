@@ -1,9 +1,13 @@
 package com.Fabrika;
 
 
+import com.Fabrika.listeners.TestListener;
+import com.Fabrika.utilites.TestBase;
 import com.automation.remarks.testng.VideoListener;
 import com.automation.remarks.video.annotations.Video;
 import com.codeborne.selenide.Condition;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 
 
@@ -11,8 +15,9 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-@Listeners({VideoListener.class, AllureListener.class})
+@Listeners({VideoListener.class, AllureListener.class, ReportPortalTestNGListener.class, TestListener.class})
 public class HomePageTests extends TestBase {
+
 
 
 

@@ -4,7 +4,7 @@ services:
     network_mode: bridge
     image: aerokube/selenoid
     volumes:
-      - "${PWD}.:/etc/selenoid"
+      - "$PWD.:/etc/selenoid"
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "4444:4444"

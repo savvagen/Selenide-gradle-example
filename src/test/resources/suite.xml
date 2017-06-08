@@ -3,11 +3,12 @@
 
 <suite name="Test Suite" parallel="tests" thread-count="2">
 
-    <parameter name="browser" value="firefox"/>
-    <parameter name="version" value="46.0"/>
+    <!--<parameter name="browser" value="firefox"/>
+    <parameter name="version" value="46.0"/>-->
 
     <!--<listeners>
         <listener class-name="com.Fabrika.AllureListener"/>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
     </listeners>-->
 
     <test name="authTests">
